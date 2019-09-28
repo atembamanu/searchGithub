@@ -7,6 +7,7 @@ import { GithubSearchComponent } from './github-search/github-search.component';
 import { HighlightRecentRepoDirective } from './highlight-recent-repo.directive';
 import { RemoveHyphensPipe } from './remove-hyphens.pipe';
 import { NavbarComponent } from './navbar/navbar.component';
+import { GtprofileComponent } from './gtprofile/gtprofile.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     GithubSearchComponent,
     HighlightRecentRepoDirective,
     RemoveHyphensPipe,
-    NavbarComponent
+    NavbarComponent,
+    GtprofileComponent
   ],
   imports: [
     BrowserModule,
