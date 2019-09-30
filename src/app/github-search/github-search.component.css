@@ -1,0 +1,17 @@
+.try{
+  z-index: 12345;
+  position: sticky !important;
+  top: 2% !important;
+}
+#bale{
+  color: aliceblue;
+}
+button{
+  margin: 2px;
+}
+.card{
+  padding: 20px;
+}
+.repourl{
+  cursor: pointer;
+}
