@@ -1,1 +1,191 @@
-<p>github-search works!</p>
+<div class="container try">
+  <form class="form-inline" #gtform='ngForm' autocomplete="off">
+    <div class="form-group">
+      <label for="options" id='bale'>Search creteria</label>
+      <select class="form-control mr-3" id="options" #criteria>
+        <option>Users</option>
+        <option>Repositories</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <input appTextInputColor id='data' type="search" class="form-control" placeholder="Enter search string" #search required
+        onfocus="this.value=''">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-primary" (click)="performSearch( criteria.value,search.value)">
+        Search
+      </button>
+    </div>
+  </form>
+</div>
+<div class="loader text-center py-5 mt-5" *ngIf='loading'>
+    <img src="assets/images/Spin-1s-158px.gif" alt="">
+  </div>
+<div class="container-fluid p-5" *ngIf="!repodetail">
+  <div class="row" *ngIf="!repodata">
+    <div class="results p-3" *ngIf='gtusers'>
+      <h3 class="lead">Returned {{gtusers?.items.length}} Users.</h3>
+      <hr>
+    </div>
+  </div>
+  <div class='row' *ngIf="!repodata">
+    <div class="col-md-3 pb-4" *ngFor="let gtUser of gtusers?.items">
+      <div class="card">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card-image text-center">
+              <img src="{{gtUser?.avatar_url}}" height="60px" id='sImage'>
+            </div>
+          </div>
+          <div class="col-md-9 p-3">
+            <div class="">
+              <div class="content">
+                <h4><strong>{{gtUser?.login}}</strong></h4>
+                <!-- <span class="badge badge-success repos">See Repositories</span> -->
+                <a (click)="findRepos(gtUser?.repos_url)" class='repourl' >See Repositories</a>
+              </div>
+              <hr>
+              <div class="card-action float-right">
+                <a href="{{gtUser?.html_url}}" class='float-right'><span class="badge badge badge-info">find in
+                    github</span></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="repodata">
+    <div class="results p-3" *ngIf='gtrepos'>
+      <h3 class="lead">Returned {{gtrepos?.items.length}} Repositories.</h3>
+      <hr>
+    </div>
+  </div>
+  <div class='row' *ngIf="repodata">
+    <div class="col-md-3" *ngFor="let repo of gtrepos.items">
+      <div class="card mb-4">
+        <div class="mContent m-4">
+          <div class="reponame lead">
+            <strong> {{repo?.name}}</strong>
+          </div>
+          <div class="repodesc">
+            {{repo?.full_name}}
+          </div>
+          <hr>
+          <div class="row infos">
+            <div class="col-md-4" *ngIf='repo.language'>
+              <div class="languageUsed ">
+                <img src="assets/images/planguage.png" alt="" height="20px"> <span
+                  id="language">{{repo?.language}}</span>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="timepassed">
+                <img src="assets/images/time.png" alt="" height="20px"> <span id="timepassed">
+                  {{repo?.updated_at | date |timepassed}}</span>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="go">
+                <a href="{{repo?.html_url}}"> <span class="badge badge badge-warning float-right">find in
+                    github</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5 py-5" *ngIf="isConnected && repodetail">
+    <!-- repositories -->
+ <div class="minfo" *ngIf="gtuserdetails">
+    <h4 class="lead">{{gtuserdetails[0]?.owner.login}} repositories</h4>
+    <p>Returned {{gtuserdetails.length}} repositories</p>
+    <hr>
+ </div>
+    <div class="repositories m-5">
+      <div class="row">
+
+        <!-- let x of xs -->
+        <div class="col-md-6" *ngFor="let repo of gtuserdetails">
+          <div class="card mb-4">
+            <div class="mContent m-4">
+              <div class="reponame lead">
+                {{repo?.name}}
+              </div>
+              <div class="repodesc">
+                {{repo?.full_name}}
+              </div>
+              <hr>
+              <div class="row infos">
+                <div class="col-md-3" *ngIf='repo?.language'>
+                  <div class="languageUsed ">
+                    <img src="assets/images/planguage.png" alt="" height="20px"> <span
+                      id="language">{{repo?.language}}</span>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="timepassed">
+                    <img src="assets/images/time.png" alt="" height="20px"> <span id="timepassed">updated:
+                      {{repo?.updated_at | date |timepassed}}</span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="go">
+                      <a href="{{repo?.html_url}}"><span class="badge badge badge-warning float-right">find in
+                        github</span></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+<div class="container py-5 text-center  codes" *ngIf="!isConnected">
+  <div class="row py-5 mt-5">
+    <div class="col-md-8 text-dark py-5 mt-5">
+      <h1>GithubSearch</h1>
+      Whoops!
+      <span class="text-danger">
+        Error code 503. Service Unavailable. status: </span>
+      <span class="lead text-danger">{{status}}</span>
+      <br>
+      HINT: Check if your internet connection is enabled or disable Airplane mode.
+
+    </div>
+    <div class="col-md-4">
+      <img src="assets/images/images.png" alt="">
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container text-center codes" *ngIf="isConnected && !gtrepos && !gtusers">
+  <div class="row py-5" *ngIf='!loading'>
+    <div class="col-md-8 text-dark py-5 mt-5">
+      <h1>GithubSearch</h1>
+      Start your search.
+      <span class="text-info">
+        Search results will appear here</span>
+      <br>
+      HINT: Select search criteria and enter your search string.
+
+    </div>
+    <div class="col-md-4">
+      <img src="assets/images/images.png" alt="">
+    </div>
+  </div>
+
+
+</div>
