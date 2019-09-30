@@ -1,3 +1,9 @@
+<div class="container-fluid mt-5 py-5" *ngIf="isConnected">
+  <div class="loader text-center" *ngIf='loading'>
+    <img src="assets/images/Spin-1s-158px.gif" alt="">
+  </div>
+
+</div>
 <div class="card m-5 asidebar" *ngIf="!loading">
   <div class="wrapper p-5">
     <!-- Sidebar -->
