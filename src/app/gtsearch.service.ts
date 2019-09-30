@@ -6,6 +6,7 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class GtsearchService {
+  constructor(private http: HttpClient) {}
 
   constructor() { }
 }
