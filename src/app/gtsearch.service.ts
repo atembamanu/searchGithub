@@ -7,6 +7,19 @@ import { HttpClient } from "@angular/common/http";
 })
 export class GtsearchService {
   constructor(private http: HttpClient) {}
+  getInfo(): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      const apiUrl = `https://api.github.com/users/atembamanu?access_token=${environment.apiKey}`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+    return promise;
+  }
 
   constructor() { }
 }
