@@ -15,7 +15,14 @@ export class GtprofileComponent implements OnInit {
   repos: any;
   loading = false;
 
-  constructor() { }
+  constructor(private gtsearchservice: GtsearchService) {
+    this.online$ = merge(
+      of(navigator.onLine),
+      fromEvent(window, "online").pipe(mapTo(true)),
+      fromEvent(window, "offline").pipe(mapTo(false))
+    );
+    this.networkStatus();
+  }
 
   ngOnInit() {
   }
