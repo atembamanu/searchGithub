@@ -4,7 +4,7 @@
   </div>
 
 </div>
-<div class="card m-5 asidebar" *ngIf="!loading">
+<div class="card m-5 asidebar" *ngIf="!loading && isConnected">
   <div class="wrapper p-5">
     <!-- Sidebar -->
     <nav id="sidebar">
@@ -32,7 +32,7 @@
 </div>
 
 <!-- repositories -->
-<div class="repositories m-5">
+<div class="repositories m-5  ngIf='isConnected'">
   <div class="row">
 
     <!-- let x of xs -->
