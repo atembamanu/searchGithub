@@ -64,4 +64,17 @@ export class GtsearchService {
     });
     return promise;
   }
+  gwtUserDetails(repourl: string): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      const apiUrl = `${repourl}?&per_page=1000`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+    return promise;
+  }
 }
