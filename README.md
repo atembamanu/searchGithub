@@ -1,27 +1,76 @@
-# GithubSearch
+# githubSearch
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.4.
+![githubSearch live Image](src/assets/images/gtsearch.png?raw=true "")
 
-## Development server
+## Description
+githubSearch is a angular application that allows users to see my profie information from github. They can also search through other users and their repositories.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Versioning
 
-## Code scaffolding
+ githubSearch-V1.0 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Author
 
-## Build
+* [**atembamanu**](https://github.com/atembamanu)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Features
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+As a user of the web application you will be able to:
 
-## Running end-to-end tests
+1. Show authors github information.
+2. Select search criteria and search through users and repositories.
+3. View users repositories
+4. Be redirected to login and signup pages for the github.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Behaviour Driven Development (BDD)
+| Behavior | Input Example- When it receives: | Output Example- It should return: |
+| :-------------: | :-------------: | :-------------: |
+| Page Loads | Profile information appears and the navbar| Can navigate to other pages |
+| Page loads | User clicks on the search zone in the navbar| A new page arrives |
+| Search area appears | User selects from the dropdown and search string | Details of the search appears|
 
-## Further help
+## Working Live Application
+The project is hosted on Firebase hosting
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+https://githubsearch-b5d6e.firebaseapp.com
+
+## Getting started
+
+### Step 1:
+
+* If you do not have the nodejs installed go ahead and install it frome [here](https://nodejs.org/en/).
+
+* Verify if all is set by running these commands: **npm --version** and node **--version**.
+
+* Install angular with angular cli. You can follow this [guide](https://codeburst.io/how-to-build-an-angular-app-with-angular-cli-in-a-couple-of-minutes-43089d3ab272) with worked well for me
+
+### Step 2: 
+
+* Copy the repository url on the top right marked with green.
+* use **git clone** the url to get the project to your local computer.
+
+
+    * **git clone https://github.com/atembamanu/searchGithub.git**
+*   The repo comes in a zipped or compressed format. Extract to your prefered location and open it.
+
+* now open the directory created with your favorite IDE. if Atom just type **.atom** if VSCode type **.code** . This will lauch the editor with the project setup, 
+
+* Now feel free to hack around the project.
+
+### Step 3:
+Run **ng serve** to view the project on your local machine
+
+## Technologies Used
+The application is developed using **ANGULAR CLI**
+
+
+## Support and Team
+Emmanuel Atemba
+
+Reach me out on [Slack me](https://slack.com/intl/en-ke/)  @atemba
+
+
+### License
+
+* LICENSED UNDER  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](license)
