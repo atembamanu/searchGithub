@@ -3,9 +3,9 @@ import { GtsearchService } from "../gtsearch.service";
 import { Observable, fromEvent, merge, of } from "rxjs";
 import { mapTo } from "rxjs/operators";
 @Component({
-  selector: 'app-gtprofile',
-  templateUrl: './gtprofile.component.html',
-  styleUrls: ['./gtprofile.component.css']
+  selector: "app-gtprofile",
+  templateUrl: "./gtprofile.component.html",
+  styleUrls: ["./gtprofile.component.css"]
 })
 export class GtprofileComponent implements OnInit {
   online$: Observable<boolean>;
@@ -36,6 +36,13 @@ export class GtprofileComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loading =  true;
+    this.gtsearchservice.getInfo().then(data => {
+      this.details = data;
+    });
+    this.gtsearchservice.getUserRepo().then(repos => {
+      this.repos = repos;
+      this.loading = false;
+    });
   }
-
 }
