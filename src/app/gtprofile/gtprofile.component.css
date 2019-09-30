@@ -6,3 +6,19 @@
   max-width: 300px;
   float: left;
 }
+#pImage
+{
+  border-radius: 50%;
+}
+.badge
+{
+  cursor: pointer;
+}
+.infos img {
+   margin: 2px;
+   padding-right: 3px;
+ }
+a{
+  text-decoration: none;
+  color: black;
+}
