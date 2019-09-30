@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit } from "@angular/core";
+import { GtsearchService } from "../gtsearch.service";
+import { Observable, fromEvent, merge, of } from "rxjs";
+import { mapTo } from "rxjs/operators";
 @Component({
   selector: 'app-gtprofile',
   templateUrl: './gtprofile.component.html',
