@@ -72,3 +72,22 @@
   </div>
 
 </div>
+
+
+<div class="container py-5 mt-5 text-center" *ngIf="!isConnected">
+  <div class="row py-5 mt-5">
+    <div class="col-md-8 text-dark py-5 mt-5">
+      <h1>GithubSearch</h1>
+      Whoops!
+      <span class="text-danger">
+        Error code 503. Service Unavailable.
+        <span class="lead">status: {{status}}</span>
+      </span> <br>
+      HINT: Check if your internet connection is enabled or disable Airplane mode.
+    </div>
+    <div class="col-md-4">
+      <img src="assets/images/images.png" alt="">
+    </div>
+  </div>
+
+</div>
