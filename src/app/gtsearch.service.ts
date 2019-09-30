@@ -38,5 +38,17 @@ export class GtsearchService {
     return promise;
   }
 
-  constructor() { }
+  searchByUser(data: string) {
+    const promise = new Promise((resolve, reject) => {
+      const apiUrl = `https://api.github.com/search/users?q=${data}&per_page=1000`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+    return promise;
+  }
 }
