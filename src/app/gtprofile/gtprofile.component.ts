@@ -23,6 +23,17 @@ export class GtprofileComponent implements OnInit {
     );
     this.networkStatus();
   }
+  public networkStatus() {
+    this.online$.subscribe(value => {
+      if (value) {
+        this.isConnected = true;
+        this.status = "ONLINE";
+      } else {
+        this.isConnected = false;
+        this.status = "OFFLINE";
+      }
+    });
+  }
 
   ngOnInit() {
   }
