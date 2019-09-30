@@ -1,1 +1,26 @@
-<p>gtprofile works!</p>
+<div class="card m-5 asidebar" *ngIf="!loading">
+  <div class="wrapper p-5">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+      <div class="sidebar-header">
+        <h3 class='text-info text-center'>Profile Info</h3>
+      </div>
+
+      <ul class="list-unstyled components">
+        <img src="{{details?.avatar_url}}" alt="" id='pImage' height="200px" class='text-center'>
+        <h5 class='pt-5'>{{details?.name}}</h5>
+        <h5 class='lead'>{{details?.login}}</h5>
+        <p>{{details?.bio}}</p>
+        <span class="badge badge badge-warning float-center"><a href="https://github.com/atembamanu">expore in
+            github</a></span>
+      </ul>
+      <hr>
+      <p>Followers <span class='badge badge-pill badge-info'>{{details?.followers}}</span></p>
+      <p>Following <span class='badge badge-pill badge-info'>{{details?.following}}</span></p>
+      <p>Public Repos <span class='badge badge-pill badge-info'>{{details?.public_repos}}</span></p>
+      <hr>
+    </nav>
+
+  </div>
+
+</div>
