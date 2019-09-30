@@ -23,6 +23,20 @@ export class GtsearchService {
     });
     return promise;
   }
+  getUserRepo(): Promise<any> {
+    const promise = new Promise((resolve, reject) => {
+      const apiUrl = `https://api.github.com/users/atembamanu/repos?access_token=${environment.apiKey}`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          //
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+    return promise;
+  }
 
   constructor() { }
 }
