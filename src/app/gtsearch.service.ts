@@ -51,4 +51,17 @@ export class GtsearchService {
     });
     return promise;
   }
+  searchByRepos(data: string) {
+    const promise = new Promise((resolve, reject) => {
+      const apiUrl = `https://api.github.com/search/repositories?q=${data}&per_page=1000`;
+      this.http
+        .get<any>(apiUrl)
+        .toPromise()
+        .then(res => {
+          resolve(res);
+        })
+        .catch(error => reject(error));
+    });
+    return promise;
+  }
 }
