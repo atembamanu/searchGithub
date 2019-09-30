@@ -6,6 +6,9 @@ import { HttpClient } from "@angular/common/http";
   providedIn: 'root'
 })
 export class GtsearchService {
+  mInfo: any[];
+  mRepos: any[];
+  userRepo: any[];
   constructor(private http: HttpClient) {}
   getInfo(): Promise<any> {
     const promise = new Promise((resolve, reject) => {
