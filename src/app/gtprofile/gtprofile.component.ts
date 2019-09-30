@@ -8,6 +8,12 @@ import { mapTo } from "rxjs/operators";
   styleUrls: ['./gtprofile.component.css']
 })
 export class GtprofileComponent implements OnInit {
+  online$: Observable<boolean>;
+  status: string;
+  isConnected = true;
+  details: any;
+  repos: any;
+  loading = false;
 
   constructor() { }
 
